@@ -5,5 +5,5 @@ This is an out-of-the-box Golang toolkit, which can reduce the process of manufa
 
 ### Installing
 ```sh
-go get github.com/wenhao26/toolbox
+go get github.com/wenhao26/toolbox@latest
 ```
