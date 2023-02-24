@@ -1,0 +1,10 @@
+.DS_Store
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+.idea
+*.out
+example
