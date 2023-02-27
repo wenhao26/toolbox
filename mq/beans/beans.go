@@ -9,14 +9,17 @@ import (
 	"github.com/beanstalkd/go-beanstalk"
 )
 
+// Connection configuration
 type Option struct {
 	Addr string
 }
 
+// Serve structure
 type Serve struct {
 	Conn *beanstalk.Conn
 }
 
+// Create Beanstalk Serve instance
 func NewServe(option *Option) (*Serve, error) {
 	conn, err := beanstalk.Dial("tcp", option.Addr)
 	if err != nil {
