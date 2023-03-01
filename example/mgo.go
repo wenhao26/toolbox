@@ -11,8 +11,8 @@ import (
 )
 
 type Community24h struct {
-	Number    int
-	CreatedAt int64
+	Number    int   `json:"number"`
+	CreatedAt int64 `json:"created_at"`
 }
 
 var ctx = context.Background()
