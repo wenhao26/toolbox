@@ -25,13 +25,13 @@ func InitConfig() {
 	if err := v.Unmarshal(&exampleConfig); err != nil {
 		log.Println(err.Error())
 	}
+	global.Settings = exampleConfig
 
+	// 监听配置变化
 	v.WatchConfig()
 	v.OnConfigChange(func(e fsnotify.Event) {
 		_ = v.Unmarshal(&exampleConfig)
 		global.Settings = exampleConfig
 		fmt.Printf("Config file:%s Op:%s\n", e.Name, e.Op)
 	})
-
-	global.Settings = exampleConfig
 }
