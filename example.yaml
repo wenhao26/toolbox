@@ -1,0 +1,14 @@
+# example.yaml
+name: "toolbox"
+logs_path: "./app/logs/"
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+
+mysql:
+  host: "127.0.0.1"
+  port: 3360
+  user: "root"
+  password: "root"
+  db: "example"
