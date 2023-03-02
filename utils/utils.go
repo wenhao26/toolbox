@@ -4,8 +4,14 @@ import (
 	"bytes"
 	"crypto/hmac"
 	"crypto/md5"
+	cryptoRand "crypto/rand"
+	"crypto/rsa"
 	"crypto/sha256"
+	"crypto/x509"
 	"encoding/hex"
+	"encoding/pem"
+	"errors"
+	"fmt"
 	"math"
 	"math/rand"
 	"sort"
@@ -17,8 +23,73 @@ import (
 	"github.com/google/uuid"
 	"github.com/lithammer/shortuuid/v4"
 	"github.com/rs/xid"
+	"github.com/sergi/go-diff/diffmatchpatch"
 	"golang.org/x/crypto/bcrypt"
 )
+
+// Compare Text
+func CompareText(text1, text2 string) map[string]interface{} {
+	result := map[string]interface{}{}
+
+	dmp := diffmatchpatch.New()
+	diffs := dmp.DiffMain(text1, text2, false)
+	if len(diffs) == 0 {
+		return result
+	}
+
+	result["diff"] = diffs
+
+	// Calculate similarity
+	equalCount := 0
+	for _, diff := range diffs {
+		// Type description:
+		//
+		// -1 DiffDelete item represents a delete diff.
+		//  1 DiffInsert item represents an insert diff.
+		//  0 DiffEqual item represents an equal diff.
+		if diff.Type == 0 {
+			equalCount++
+		}
+	}
+	similarity, _ := strconv.ParseFloat(fmt.Sprintf("%.2f", float64(equalCount)/float64(len(diffs))), 64)
+	result["similarity"] = similarity
+
+	return result
+}
+
+// Generate RSA Public key & private key
+func GenRSAKey() (map[string][]byte, error) {
+	// private-key
+	privateKey, err := rsa.GenerateKey(cryptoRand.Reader, 1024)
+	if err != nil {
+		return nil, errors.New("private key error")
+	}
+
+	derPrvStream := x509.MarshalPKCS1PrivateKey(privateKey)
+	block := &pem.Block{
+		Type:  "RSA PRIVATE KEY",
+		Bytes: derPrvStream,
+	}
+	prvKey := pem.EncodeToMemory(block)
+
+	// public-key
+	publicKey := &privateKey.PublicKey
+	derPubStream, err := x509.MarshalPKIXPublicKey(publicKey)
+	if err != nil {
+		return nil, errors.New("public key error")
+	}
+
+	block = &pem.Block{
+		Type:  "RSA PUBLIC KEY",
+		Bytes: derPubStream,
+	}
+	pubKey := pem.EncodeToMemory(block)
+
+	return map[string][]byte{
+		"private_key": prvKey,
+		"public_key":  pubKey,
+	}, nil
+}
 
 // Generate AES key
 func GenAESKey() string {

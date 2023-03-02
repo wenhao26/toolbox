@@ -12,7 +12,7 @@ func main() {
 	fmt.Println(hash)
 	fmt.Println(utils.VerifyPassword(hash, password))*/
 
-	params := map[string]interface{}{
+	/*params := map[string]interface{}{
 		"app-version": "1.0.0",
 		"app-key":     "12345678",
 		"timestamp":   1677226735,
@@ -22,5 +22,14 @@ func main() {
 	}
 	secret := "yourkey"
 	sign := utils.GenSimpleSignature(params, secret, "")
-	fmt.Println(sign)
+	fmt.Println(sign)*/
+
+	keys, err := utils.GenRSAKey()
+	if err != nil {
+		panic(err)
+	}
+	for _, key := range keys {
+		fmt.Println(string(key))
+	}
+	//fmt.Println(keys)
 }
