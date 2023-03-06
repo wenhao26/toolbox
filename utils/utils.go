@@ -28,7 +28,7 @@ import (
 )
 
 // Compare Text
-func CompareText(text1, text2 string) map[string]interface{} {
+func TextCompare(text1, text2 string) map[string]interface{} {
 	result := map[string]interface{}{}
 
 	dmp := diffmatchpatch.New()
