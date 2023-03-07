@@ -37,4 +37,34 @@ func main() {
 		fmt.Printf("发布到频道 %s 成功, 流位置 {offset: %d, epoch: %s} \n", channel, publishResult.Offset, publishResult.Epoch)
 		time.Sleep(100 * time.Millisecond)
 	}
+
+	// Mock - 使用ants协程池，模拟数据并发推送
+	//wg := sync.WaitGroup{}
+	//publisher := func() {
+	//	for i := 0; i < 10000; i++ {
+	//		body := map[string]string{
+	//			"time": time.Now().String(),
+	//		}
+	//		data, _ := json.Marshal(body)
+	//		publishResult, err := cent.Publish(channel, data)
+	//		if err != nil {
+	//			log.Println("发布消息异常:", err)
+	//		}
+	//		fmt.Printf("发布到频道 %s 成功, 流位置 {offset: %d, epoch: %s} \n", channel, publishResult.Offset, publishResult.Epoch)
+	//		//time.Sleep(100 * time.Millisecond)
+	//	}
+	//}
+	//
+	//p, _ := ants.NewPool(5)
+	//defer p.Release()
+	//for i := 0; i < 5; i++ {
+	//	wg.Add(1)
+	//	_ = p.Submit(func() {
+	//		publisher()
+	//		wg.Done()
+	//	})
+	//}
+	//wg.Wait()
+	//
+	//fmt.Println("Running Number:", p.Running())
 }

@@ -41,6 +41,7 @@ require (
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
+	github.com/panjf2000/ants/v2 v2.7.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/pierrec/lz4/v4 v4.1.17 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
