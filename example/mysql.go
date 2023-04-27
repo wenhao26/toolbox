@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"toolbox/storage/mysql"
+	"github.com/wenhao26/toolbox/storage/mysql"
 )
 
 type User struct {

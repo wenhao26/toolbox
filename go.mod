@@ -14,6 +14,7 @@ require (
 
 require (
 	github.com/Shopify/sarama v1.38.1 // indirect
+	github.com/allegro/bigcache v1.2.1 // indirect
 	github.com/beanstalkd/go-beanstalk v0.2.0 // indirect
 	github.com/centrifugal/gocent/v3 v3.2.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
