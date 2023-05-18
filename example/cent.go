@@ -19,6 +19,7 @@ func main() {
 	//tokenSecretKey := "5c1b094c-dc02-43e4-8cd8-0a3d08531112"
 	//token1 := cent.SetSecret(tokenSecretKey).GenConnToken("1688", 0, nil, nil)
 	//fmt.Println(token1)
+	//os.Exit(0)
 	////token2 := cent.SetSecret(tokenSecretKey).GenPrivateChannelToken("1688", "test-channel", 0, nil)
 	////fmt.Println(token2)
 	//os.Exit(0)
