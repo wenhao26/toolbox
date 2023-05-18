@@ -14,6 +14,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -205,4 +206,10 @@ func GenSnowflakeID(n int64) (int64, error) {
 		return 0, err
 	}
 	return node.Generate().Int64(), nil
+}
+
+// Validate Email
+func ValidEmail(email string) bool {
+	regex := regexp.MustCompile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+	return regex.MatchString(email)
 }
