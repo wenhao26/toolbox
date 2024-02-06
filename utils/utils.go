@@ -213,3 +213,41 @@ func ValidEmail(email string) bool {
 	regex := regexp.MustCompile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
 	return regex.MatchString(email)
 }
+
+// 获取时间范围内的日期
+func GetDatesWithinTimeRange(sDate, eDate string) []string {
+	var d []string
+
+	timeFormatTpl := "2006-01-02 15:04:05"
+	if len(timeFormatTpl) != len(sDate) {
+		timeFormatTpl = timeFormatTpl[0:len(sDate)]
+	}
+
+	date, err := time.Parse(timeFormatTpl, sDate)
+	if err != nil {
+		return d
+	}
+	date2, err := time.Parse(timeFormatTpl, eDate)
+	if err != nil {
+		return d
+	}
+
+	if date2.Before(date) {
+		// 如果结束时间小于开始时间，异常
+		return d
+	}
+
+	// 输出固定的日期格式
+	outputTimeFormatTpl := "2006-01-02"
+	date2Str := date2.Format(outputTimeFormatTpl)
+	d = append(d, date.Format(outputTimeFormatTpl))
+	for {
+		date = date.AddDate(0, 0, 1)
+		dateStr := date.Format(outputTimeFormatTpl)
+		d = append(d, dateStr)
+		if dateStr == date2Str {
+			break
+		}
+	}
+	return d
+}

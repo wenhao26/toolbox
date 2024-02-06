@@ -24,12 +24,18 @@ func main() {
 	sign := utils.GenSimpleSignature(params, secret, "")
 	fmt.Println(sign)*/
 
-	keys, err := utils.GenRSAKey()
+	/*keys, err := utils.GenRSAKey()
 	if err != nil {
 		panic(err)
 	}
 	for _, key := range keys {
 		fmt.Println(string(key))
 	}
-	//fmt.Println(keys)
+	fmt.Println(keys)*/
+
+	dates := utils.GetDatesWithinTimeRange("2023-12-01", "2024-02-04")
+	for _, date := range dates {
+		fmt.Println(date)
+	}
+
 }
