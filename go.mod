@@ -15,6 +15,7 @@ require (
 require (
 	github.com/Shopify/sarama v1.38.1 // indirect
 	github.com/allegro/bigcache v1.2.1 // indirect
+	github.com/antlabs/strsim v0.0.3 // indirect
 	github.com/beanstalkd/go-beanstalk v0.2.0 // indirect
 	github.com/centrifugal/gocent/v3 v3.2.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -26,6 +27,7 @@ require (
 	github.com/eapache/go-xerial-snappy v0.0.0-20230111030713-bf00bc1b83b6 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/go-ego/gse v0.80.3 // indirect
 	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
@@ -60,6 +62,7 @@ require (
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/stretchr/testify v1.8.2 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
+	github.com/vcaesar/cedar v0.20.2 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
