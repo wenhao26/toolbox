@@ -36,7 +36,7 @@ func NewStorage(option *Option) (*Storage, error) {
 
 	err = client.Ping(ctx, nil)
 	if err != nil {
-		return nil, errors.New("Ping failed")
+		return nil, errors.New("ping failed")
 	}
 
 	return &Storage{mgo: client}, nil
