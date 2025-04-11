@@ -83,7 +83,7 @@ func main() {
 			wg.Add(1)
 
 			// 在提交任务之前，打印当前池子的状态
-			fmt.Printf("当前池子状态 - 容量: %d, 正在运行: %d, 可用任务: %d\n", pool.Cap(), pool.Running(), pool.Free())
+			//fmt.Printf("当前池子状态 - 容量: %d, 正在运行: %d, 可用任务: %d\n", pool.Cap(), pool.Running(), pool.Free())
 
 			// 提交到协程池
 			tmpChunk := chunk // 避免闭包中 chunk 被复用
