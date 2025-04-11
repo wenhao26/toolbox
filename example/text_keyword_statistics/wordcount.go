@@ -54,7 +54,7 @@ func main() {
 	totalCount := 0
 
 	// 协程池
-	pool, err := ants.NewPool(20, ants.WithNonblocking(false), ants.WithExpiryDuration(10*time.Second))
+	pool, err := ants.NewPool(10, ants.WithNonblocking(false), ants.WithExpiryDuration(10*time.Second))
 	if err != nil {
 		fmt.Printf("协程池初始化失败：%v\n", err)
 		return
