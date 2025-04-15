@@ -9,7 +9,7 @@ func TestRequestBuilding(t *testing.T) {
 	client := NewClient(Config{})
 	req := client.Get("https://httpbin.org/get").
 		WithQuery(map[string]string{"id": "123"}).
-		WithHeader("X-Test", "true")
+		WithHeader(map[string]string{"X-Test": "true"})
 
 	if req == nil {
 		t.Fatal("expected non-nil request")

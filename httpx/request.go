@@ -29,8 +29,14 @@ func (r *Request) WithContext(ctx context.Context) *Request {
 }
 
 // WithHeader 添加单个请求头字段
-func (r *Request) WithHeader(key, value string) *Request {
-	r.headers.Set(key, value)
+//func (r *Request) WithHeader(key, value string) *Request {
+//	r.headers.Set(key, value)
+//	return r
+//}
+func (r *Request) WithHeader(params map[string]string) *Request {
+	for k, v := range params {
+		r.headers.Set(k, v)
+	}
 	return r
 }
 
